@@ -1,0 +1,1 @@
+#Contains functions for line encoding techniques (NRZ-L, NRZ-I, Manchester, Differential Manchester, AMI).
