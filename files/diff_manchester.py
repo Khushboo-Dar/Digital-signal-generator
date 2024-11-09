@@ -17,6 +17,19 @@ def encode_differential_manchester(stream):
     
     return signal
 
+def decode_differential_manchester(signal):
+    decoded = []
+    prev_level = 1
+    for i in range(0, len(signal), 2):
+        if signal[i] == prev_level:
+            decoded.append('1')
+        elif signal[i] == -prev_level:
+            decoded.append('0')
+        else:
+            raise ValueError("Invalid signal")
+        prev_level = signal[i]
+    return ''.join(decoded)
+
 def main_differential_manchester():
     bitrate = float(input("Enter bitrate (bits per second): "))
     bits = input("Enter data stream: ")
@@ -25,4 +38,7 @@ def main_differential_manchester():
     print("Differential Manchester Encoded Signal:", manchester_signal)
     print("Longset Palindrome in the signal:", longestPalindrome(bits))
     plot_differential_manchester(manchester_signal, manchester_time, f"Differential Manchester Encoding for bit stream: {bits}", bitrate, bits)
+    decode = input("Do you want to decode the signal? (y/n): ")
+    if decode.lower() == 'y':
+        print("Decoded Signal:", decode_differential_manchester(manchester_signal))
 

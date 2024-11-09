@@ -16,6 +16,10 @@ def encode_ami(bits):
             signal.append(0)
     return signal
 
+def decode_ami(signal):
+    """Decode AMI signal."""
+    return ''.join(['1' if bit != 0 else '0' for bit in signal])
+
 def main_ami():
     bitrate = float(input("Enter bitrate (bits per second): "))
     bits = input("Enter data stream: ")
@@ -24,4 +28,10 @@ def main_ami():
     print("AMI Encoded Signal:", signal)
     print("Longset Palindrome in the signal:", longestPalindrome(bits))
     plot_ami(signal, time_points, 'AMI Encoding', bitrate, bits)
+
+    #ask user whether to decode or not 
+    decode = input("Do you want to decode the signal? (y/n): ")
+    if decode.lower() == 'y':
+        print("Decoded Signal:", decode_ami(signal))
+
 
