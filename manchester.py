@@ -2,6 +2,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+from utils import longestPalindrome
 
 def main_manchester():
     """
@@ -39,6 +40,8 @@ def main_manchester():
             signal.extend([-1] * len(t_half))
             signal.extend([1] * len(t_full))
 
+    print("Manchester Encoded Signal:", signal)    
+    print("Longest Palindrome in the signal:", longestPalindrome(binary_input))
     # Plotting the Manchester waveform
     plt.plot(t_total, signal, linewidth=2.5)
     plt.xlabel("Time")

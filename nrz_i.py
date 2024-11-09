@@ -1,6 +1,7 @@
 #NRZ-I
 import numpy as np
 import matplotlib.pyplot as plt
+from utils import longestPalindrome
 
 # Function to perform NRZ-I encoding
 def nrz_i_encode(data, voltage_level):
@@ -25,6 +26,8 @@ def main_nrz_i():
     # Perform NRZ-I encoding
     encoded_signal = nrz_i_encode(data, voltage_level)
 
+    print("NRZ-I Encoded Signal:", encoded_signal)
+    print("Longest Palindrome in the signal:", longestPalindrome(data_bits))
     # Plot the encoded signal
     plt.figure(figsize=(10, 4))
     plt.step(range(len(encoded_signal)), encoded_signal, where='mid')
