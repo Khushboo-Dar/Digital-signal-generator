@@ -5,6 +5,9 @@ from utils import generate_time_points, prepare_plot_data, plot_nrz_l, longestPa
 def encode_nrz_l(stream):
     return [1 if bit == '1' else -1 for bit in stream]
 
+def decode_nrz_l(signal):
+    return ''.join(['1' if bit > 0 else '0' for bit in signal])
+
 def main_nrz_l():
     bitrate = float(input("Enter bitrate (bits per second): "))
     bits = input("Enter data stream: ")
@@ -12,5 +15,6 @@ def main_nrz_l():
     nrz_time = generate_time_points(len(nrz_signal), bitrate)
     print("NRZ-L Encoded Signal:", nrz_signal)
     print("Longset Palindrome in the signal:", longestPalindrome(bits))
+    print("Decoded Signal:", decode_nrz_l(nrz_signal))
     plot_nrz_l(nrz_signal, nrz_time, f"NRZ-L Encoding for bit stream: {bits}", bitrate, bits)
 
