@@ -15,6 +15,8 @@ def main_nrz_l():
     nrz_time = generate_time_points(len(nrz_signal), bitrate)
     print("NRZ-L Encoded Signal:", nrz_signal)
     print("Longset Palindrome in the signal:", longestPalindrome(bits))
-    print("Decoded Signal:", decode_nrz_l(nrz_signal))
     plot_nrz_l(nrz_signal, nrz_time, f"NRZ-L Encoding for bit stream: {bits}", bitrate, bits)
+    decode = input("Do you want to decode the signal? (y/n): ")
+    if decode.lower() == 'y':
+        print("Decoded Signal:", decode_nrz_l(nrz_signal))
 

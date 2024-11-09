@@ -27,6 +27,11 @@ def main_ami():
     time_points = generate_time_points(len(signal), bitrate)
     print("AMI Encoded Signal:", signal)
     print("Longset Palindrome in the signal:", longestPalindrome(bits))
-    print("Decoded Signal:", decode_ami(signal))
     plot_ami(signal, time_points, 'AMI Encoding', bitrate, bits)
+
+    #ask user whether to decode or not 
+    decode = input("Do you want to decode the signal? (y/n): ")
+    if decode.lower() == 'y':
+        print("Decoded Signal:", decode_ami(signal))
+
 
