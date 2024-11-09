@@ -3,7 +3,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def MANCHESTER():
+def main_manchester():
     """
     Line code MANCHESTER with user input
     """
@@ -45,5 +45,3 @@ def MANCHESTER():
     plt.ylabel("Amplitude")
     plt.show()
 
-# Call the function to get user input and display the plot
-MANCHESTER()
