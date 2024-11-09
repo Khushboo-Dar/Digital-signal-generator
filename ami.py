@@ -2,7 +2,7 @@
 # and when bit is 1 we send signal with alternate polarity
 import numpy as np
 import matplotlib.pyplot as plt
-from utils import generate_time_points, prepare_plot_data, plot_ami
+from utils import generate_time_points, prepare_plot_data, plot_ami, longestPalindrome
 
 def encode_ami(bits):
     """Encode data stream using AMI."""
@@ -21,5 +21,7 @@ def main_ami():
     bits = input("Enter data stream: ")
     signal = encode_ami(bits)
     time_points = generate_time_points(len(signal), bitrate)
+    print("AMI Encoded Signal:", signal)
+    print("Longset Palindrome in the signal:", longestPalindrome(bits))
     plot_ami(signal, time_points, 'AMI Encoding', bitrate, bits)
 

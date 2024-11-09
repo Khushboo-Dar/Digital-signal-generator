@@ -59,17 +59,18 @@ def pcm(A, fm, fs, n):
 
     return y, Bitrate, MSE, Stepsize, QNoise
 
-# Get user input
-A = float(input("Enter the amplitude of the cosine signal (A): "))
-fm = float(input("Enter the frequency of the cosine signal (fm): "))
-fs = float(input("Enter the sampling frequency (fs): "))
-n = int(input("Enter the number of bits per sample (n): "))
+def main_pcm():
+    # Get user input
+    A = float(input("Enter the amplitude of the cosine signal (A): "))
+    fm = float(input("Enter the frequency of the cosine signal (fm): "))
+    fs = float(input("Enter the sampling frequency (fs): "))
+    n = int(input("Enter the number of bits per sample (n): "))
 
-# Run the PCM function
-y, Bitrate, MSE, Stepsize, QNoise = pcm(A, fm, fs, n)
+    # Run the PCM function
+    y, Bitrate, MSE, Stepsize, QNoise = pcm(A, fm, fs, n)
 
-# Display results
-print(f"Bitrate: {Bitrate}")
-print(f"Mean Square Error (MSE): {MSE}")
-print(f"Step Size: {Stepsize}")
-print(f"Quantization Noise (QNoise): {QNoise}")
+    # Display results
+    print(f"Bitrate: {Bitrate}")
+    print(f"Mean Square Error (MSE): {MSE}")
+    print(f"Step Size: {Stepsize}")
+    print(f"Quantization Noise (QNoise): {QNoise}")

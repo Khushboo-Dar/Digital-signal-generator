@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from utils import generate_time_points, prepare_plot_data, plot_hdb3
+from utils import generate_time_points, prepare_plot_data, plot_hdb3, longestPalindrome
 
 def encode_hdb3(bits):
     encoded = []
@@ -39,6 +39,8 @@ def main_hdb3():
     bits = input("Enter data stream: ")
     signal = encode_hdb3(bits)
     time_points = generate_time_points(len(signal), bitrate)
+    print("HDB3 Encoded Signal:", signal)
+    print("Longset Palindrome in the signal:", longestPalindrome(bits))
     plot_hdb3(signal, time_points, 'HDB3 Encoding', bitrate, bits)
 
     
