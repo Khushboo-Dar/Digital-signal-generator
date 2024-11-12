@@ -32,7 +32,7 @@ def main():
         elif line_encoding_technique==5:
             scramble = input("Do you want to use Scrambling for AMI? (y/n)").strip().lower()
             
-            if scramble == "y":
+            if scramble == "y" or scramble == "":
                 scramble_technique = input("Enter scrambling technique \n1.B8ZS\n2.HDB3)\n >> ")
                 
                 if scramble_technique == "2":

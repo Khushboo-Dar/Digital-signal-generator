@@ -43,6 +43,6 @@ def main_manchester():
     plt.show()
 
     decode = input("Do you want to decode the signal? (y/n): ")
-    if decode.lower() == 'y':
+    if decode.lower() == 'y' or decode.lower() == '':
         decoded_signal = decode_manchester(manchester_signal)
         print("Decoded Signal:", decoded_signal)

@@ -44,5 +44,5 @@ def main_nrz_i():
     plt.grid(True)
     plt.show()
     decode = input("Do you want to decode the signal? (y/n): ")
-    if decode.lower() == 'y':
+    if decode.lower() == 'y' or decode.lower() == '':
         print("Decoded Signal:", decode_nrz_i(encoded_signal, voltage_level))
