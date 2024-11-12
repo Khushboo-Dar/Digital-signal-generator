@@ -41,7 +41,6 @@ def main_hdb3():
     time_points = generate_time_points(len(signal), bitrate)
     print("HDB3 Encoded Signal:", signal)
     print("Longset Palindrome in the signal:", longestPalindrome(bits))
-    print("Decoded Signal:", decode_hdb3(signal))
     plot_hdb3(signal, time_points, 'HDB3 Encoding', bitrate, bits)
 
     

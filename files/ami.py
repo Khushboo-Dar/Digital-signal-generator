@@ -31,7 +31,7 @@ def main_ami():
 
     #ask user whether to decode or not 
     decode = input("Do you want to decode the signal? (y/n): ")
-    if decode.lower() == 'y':
+    if decode.lower() == 'y' or decode.lower() == '':
         print("Decoded Signal:", decode_ami(signal))
 
 

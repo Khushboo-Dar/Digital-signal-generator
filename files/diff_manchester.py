@@ -39,6 +39,6 @@ def main_differential_manchester():
     print("Longset Palindrome in the signal:", longestPalindrome(bits))
     plot_differential_manchester(manchester_signal, manchester_time, f"Differential Manchester Encoding for bit stream: {bits}", bitrate, bits)
     decode = input("Do you want to decode the signal? (y/n): ")
-    if decode.lower() == 'y':
+    if decode.lower() == 'y' or decode.lower() == '':
         print("Decoded Signal:", decode_differential_manchester(manchester_signal))
 
