@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def pcm(A, fm, fs, n):
+    # Generate the continuous cosine signal
     t = np.arange(0, 1, 1 / (100 * fm))
     x = A * np.cos(2 * np.pi * fm * t)
 
@@ -10,19 +11,18 @@ def pcm(A, fm, fs, n):
     xs = A * np.cos(2 * np.pi * fm * ts)
 
     # Quantization
-    x1 = (xs + A) / (2 * A)  # Normalize between 0 and 1
     L = 2**n - 1  # Number of quantization levels
-    x1 = L * x1   # Scale up to quantization levels
-    xq = np.round(x1)  # Quantize
-    r = (xq / L) * 2 * A - A  # De-normalize back to signal range
+    x1 = (xs + A) / (2 * A) * L  # Normalize and scale to quantization levels
+    xq = np.round(x1)  # Quantized signal levels
+    r = (xq / L) * 2 * A - A  # Reconstruction from quantized levels
 
     # Encoding
     y = []
     for value in xq:
-        binary = format(int(value), f'0{n}b')  # Binary representation with n bits
-        y.extend([int(bit) for bit in binary])  # Convert binary string to list of bits
+        binary = format(int(value), f'0{n}b')  # Convert each level to binary
+        y.extend([int(bit) for bit in binary])  # Flatten to binary bit sequence
 
-    # Calculations
+    # Calculate parameters
     MSE = np.mean((xs - r)**2)
     Bitrate = n * fs
     Stepsize = 2 * A / L
@@ -70,7 +70,7 @@ def main_pcm():
     y, Bitrate, MSE, Stepsize, QNoise = pcm(A, fm, fs, n)
 
     # Display results
-    print(f"Bitrate: {Bitrate}")
+    print(f"Bitrate: {Bitrate} bits per second")
     print(f"Mean Square Error (MSE): {MSE}")
     print(f"Step Size: {Stepsize}")
     print(f"Quantization Noise (QNoise): {QNoise}")
