@@ -10,10 +10,10 @@ def encode_differential_manchester(stream):
     
     for bit in stream:
         if bit == '0':
-            current_level = -current_level
-            signal.extend([current_level, -current_level])
+            signal.extend([-current_level, current_level])
         else:
             signal.extend([current_level, -current_level])
+            current_level= -current_level
     
     return signal
 
